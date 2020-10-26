@@ -1,5 +1,9 @@
 <?php get_header(); ?>
 
+<section class="hero">
+   
+</section>
+
 <div class="wrapper">
 
    <div class="site-content">

@@ -10,6 +10,14 @@
 @import 'helpers/normalize'
 @import 'helpers/fonts'
 
+$hamburger-padding-x: 0px
+$hamburger-padding-y: 0px
+$hamburger-layer-color: $color-additional-white
+$hamburger-active-layer-color: $color-additional-white
+.hamburger
+   display: flex !important
+@import './node_modules/hamburgers/_sass/hamburgers/hamburgers.scss'
+
 ::placeholder
    color: $color-functional-input-bg
 
@@ -23,13 +31,16 @@ input, textarea
       border-color: red
    &:required:valid
       border-color: green
-
+button
+   outline: none
 body   
    min-width: 320px
    position: relative
    overflow-x: hidden
    color: $color-theme-text   
    +font-paragraph()
+.open-nav
+   overflow: hidden
 
 h1
    +font-h1()
@@ -57,6 +68,9 @@ p
 small 
    +font-small-text()  
 
+a
+   text-decoration: none      
+
 .debug-grid
    +debug(red, 1px solid #fff)
    z-index: 999
@@ -73,6 +87,93 @@ small
    &__active
       display: block
 
+.button
+   padding: 10px 16px
+   color: $color-additional-white
+   display: inline-block
+   border-radius: 4px
+   transition: all 0.3s cubic-bezier(0.37, 0, 0.63, 1)
+   +font-menu()   
+   &:hover
+      opacity: .5
+   &-second
+      border: 1px solid #fff
+      text-align: center
 
 .wrapper
    +wrapper()
+.row
+   +row-flex()   
+
+header
+   position: absolute
+   width: 100%
+   top: 0   
+
+.navigation
+   +col()
+   +size(12)
+   display: flex
+   justify-content: space-between   
+   align-items: center   
+   &__burger
+      +from(990px)
+         display: none
+   &__button-wrapper
+      display: flex
+      align-items: center
+      .button         
+         margin-right: 16px
+         +to(450px)
+            display: none
+
+nav 
+   +to(990px)
+      position: absolute
+      width: 100%
+      height: $appheight
+      background: $color-theme-text
+      top: 0      
+      display: flex
+      justify-content: center
+      align-items: center
+      transition: all 0.3s cubic-bezier(0.37, 0, 0.63, 1)
+      transform: translateX(100%)
+      display: flex
+      flex-direction: column
+   .button
+      +from(990px)
+         display: none
+.nav-is-active
+   transform: translateX(0)
+.primary-menu   
+   ul
+      display: flex
+      +to(990px)
+         flex-direction: column
+         text-align: center
+         justify-content: space-between         
+      &:hover li:not(:hover) 
+        opacity: 0.5
+      li
+         transition: all 0.3s cubic-bezier(0.37, 0, 0.63, 1)
+         a
+            padding: 10px
+            color: $color-additional-white 
+            display: block           
+            +font-menu()   
+            +to(990px)
+               margin-bottom: 24px         
+
+
+.logo
+   flex-shrink: 0
+   z-index: 2
+
+.hero   
+   height: 80vh
+   background: $color-theme-text
+
+
+
+   
