@@ -1,5 +1,5 @@
  /*
- Theme Name: TM WP
+ Theme Name: MazhordomTheme
  Author: Alexandr Schetinin
  Author URI: https://www.bristl.com
  Version: 1.0
@@ -11,10 +11,10 @@
 @import 'helpers/fonts'
 
 ::placeholder
-   color: $gray
+   color: $color-functional-input-bg
 
 ::selection
-   background-color: $accent_color
+   background-color: $color-theme-primary
    color: #fff
 
 input, textarea
@@ -24,14 +24,38 @@ input, textarea
    &:required:valid
       border-color: green
 
-body
-   font-family: $font
-   font-size: 18px   
+body   
    min-width: 320px
    position: relative
-   line-height: 1.65
    overflow-x: hidden
-   color: $text_color
+   color: $color-theme-text   
+   +font-paragraph()
+
+h1
+   +font-h1()
+   margin-bottom: 1.5rem
+h2
+   +font-h2()
+   margin-bottom: 1rem
+h3 
+   +font-h3()
+   margin-bottom: 1rem
+h4 
+   +font-h4()
+   margin-bottom: 1rem   
+h5
+   +font-h5()
+   margin-bottom: 1rem
+h6
+   +font-h6()
+   margin-bottom: 1rem
+
+p
+   +font-paragraph()
+   margin-bottom: 1rem  
+      
+small 
+   +font-small-text()  
 
 .wrapper
    +wrapper()
