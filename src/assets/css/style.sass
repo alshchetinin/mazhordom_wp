@@ -99,6 +99,10 @@ a
    &-second
       border: 1px solid #fff
       text-align: center
+   &-primary
+      background: $color-theme-primary     
+   &-big
+      padding: 18px 30px    
 
 .wrapper
    +wrapper()
@@ -172,7 +176,55 @@ nav
 
 .hero   
    height: 80vh
-   background: $color-theme-text
+   background-size: cover
+   background-position: center right
+   background-color: $color-theme-text
+   display: flex
+   align-items: center
+   color: #fff
+   &__title
+      +col()
+      +size(10)
+      margin-bottom: 10px
+      h1
+         font-size: 72px
+         line-height: 69px
+         span
+            color: $color-theme-primary
+   &__description
+      +col()
+      +size(4)
+      +shift-right(2)
+      margin-bottom: 32px
+   &__advantages
+      +col()
+      +size(7)
+      +shift-right(2)
+      margin-bottom: 54px
+      display: flex
+      flex-wrap: wrap
+   &__button
+      +col()
+
+.advantage
+   display: flex
+   background: #343439
+   border-radius: 8px
+   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1)   
+   padding: 8px 16px 4px 8px
+   align-items: center
+   margin-right: 8px
+   margin-bottom: 8px
+   &__icon
+      margin-right: 16px
+   &__text
+      font-size: 14px
+      line-height: 17px
+      font-weight: bold
+
+
+
+
 
 
 
