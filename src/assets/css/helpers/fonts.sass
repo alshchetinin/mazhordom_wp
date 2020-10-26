@@ -1,0 +1,12 @@
+@mixin font($f-name, $f-style, $f-weight, $f-url)
+   @font-face
+      font-family: $f-name
+      font-style: $f-style
+      font-weight: $f-weight
+      src: url($f-url) format('woff')
+
++font("gt", normal, 900, "././fonts/GothamPro-Black.woff")
++font("gt", normal, 700, "././fonts/GothamPro-Bold.woff")
++font("gt", normal, 600, "././fonts/GothamPro-Medium.woff")
++font("gt", normal, 500, "././fonts/GothamPro.woff")      
++font("gt", normal, 300, "././GothamPro-Light.woff")   
