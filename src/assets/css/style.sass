@@ -53,9 +53,26 @@ h6
 p
    +font-paragraph()
    margin-bottom: 1rem  
-      
+
 small 
    +font-small-text()  
+
+.debug-grid
+   +debug(red, 1px solid #fff)
+   z-index: 999
+   opacity: .2
+   display: none
+   pointer-events: none
+   @include sm-block()
+      div
+         div
+            div
+               +size-sm(3)
+               &:nth-child(-n+8)
+                  display: none
+   &__active
+      display: block
+
 
 .wrapper
    +wrapper()
