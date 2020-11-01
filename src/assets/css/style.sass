@@ -17,16 +17,35 @@ $hamburger-active-layer-color: $color-additional-white
 .hamburger
    display: flex !important
 @import './node_modules/hamburgers/_sass/hamburgers/hamburgers.scss'
+@import './node_modules/video.js/src/css/vjs.scss'
+@import './node_modules/slick-carousel/slick/slick.scss'
+// @import './node_modules/slick-carousel/slick/slick-theme.scss'
+@import './node_modules/magnific-popup/src/css/main.scss'
 
-::placeholder
+html
+   scroll-behavior: smooth
+::placeholder 
    color: $color-functional-input-bg
 
 ::selection
    background-color: $color-theme-primary
    color: #fff
 
+video::-webkit-media-controls-panel
+  display: none!important
+  -webkit-appearance: none
+
+video::--webkit-media-controls-play-button
+  display: none!important
+  -webkit-appearance: none
+
+video::-webkit-media-controls-start-playback-button 
+  display: none!important
+  -webkit-appearance: none
+
 input, textarea
    outline: none
+   box-sizing: border-box
    &:focus:required:invalid
       border-color: red
    &:required:valid
@@ -39,6 +58,7 @@ body
    overflow-x: hidden
    color: $color-theme-text   
    +font-paragraph()
+   background: #F9F9FA
 .open-nav
    overflow: hidden
 
@@ -95,7 +115,7 @@ a
    transition: all 0.3s cubic-bezier(0.37, 0, 0.63, 1)
    +font-menu()   
    &:hover
-      opacity: .5
+      transform: translateY(-3px)
    &-second
       border: 1px solid #fff
       text-align: center
@@ -112,7 +132,13 @@ a
 
 header
    position: absolute
-   width: 100%   
+   width: 100% 
+   z-index: 10
+   top: 0px
+   transition: all .3s ease-in-out
+
+
+
 
 .navigation
    +col()
@@ -147,7 +173,7 @@ nav
       transition: all 0.3s cubic-bezier(0.37, 0, 0.63, 1)
       transform: translateY(-100%)
       display: flex
-      flex-direction: column
+      flex-direction: column      
    .button
       +from(990px)
          display: none
@@ -177,6 +203,19 @@ nav
    flex-shrink: 0
    z-index: 2
 
+.header_fixed-topanimation
+   top: -200px      
+   position: fixed   
+   .navigation
+      padding: 10px 0px
+
+.header_fixed
+   // position: fixed
+   // backdrop-filter: blur(100px)
+   background: $color-theme-text
+   top: 0px
+
+
 .hero   
    padding: 150px 0px 
    background-size: cover
@@ -184,12 +223,14 @@ nav
    background-color: $color-theme-text
    display: flex
    align-items: center
+   position: relative
    color: #fff
    &__title
       +col()
       +size(10)
       +size-md(12)
-      margin-bottom: 10px
+      margin-bottom: 10px   
+      z-index: 1   
       h1
          font-size: 72px
          line-height: 0.95
@@ -204,21 +245,38 @@ nav
       // +shift-right(2)
       // +shift-md-right(0)
       margin-bottom: 32px
+      z-index: 1
    &__advantages
       +col()
-      +size(7)
+      +size(6.3)
       +size-md(12)
-      // +shift-right(2)
-      // +shift-md-right(0)
+      +shift-right(2)
+      +shift-md-right(0)
       margin-bottom: 54px
       display: flex
       flex-wrap: wrap
+      z-index: 1
       // +sm-block()
       //    flex-wrap: nowrap
       //    overflow-x: scroll
+      .advantage
+         opacity: 0
+         +md-block()
+            opacity: 1
    &__button
       +col()
+      z-index: 1
+   &__bg
+      object-fit: cover
+      object-position: center right
+      width: 100%
+      height: 100%
+      position: absolute
+      top: 0
+      z-index: 0
 
+
+ 
 .advantage
    display: flex
    background: #343439
@@ -228,17 +286,25 @@ nav
    align-items: center
    margin-right: 8px
    margin-bottom: 8px
+   transition: all .3s ease-in-out   
    +sm-block()
       flex-shrink: 0
+   &:hover
+      transform: translateY(-2px)
+      background: #424245
    &__icon
       margin-right: 16px
+      +md-block()
+         width: 20px
    &__text
       font-size: 14px
-      line-height: 17px
+      line-height: 1.2
       font-weight: bold
+      +sm-block()
+         font-size: 10px
 
 
-.simple, .hero, .profitable, .available
+section
    +offset-section()
 .simple
    position: relative
@@ -254,6 +320,21 @@ nav
       +sm-block()
          font-size: 32px
 
+   &_horizontally
+      +size(12)
+      display: flex
+      justify-content: space-between
+      align-items: flex-end
+      +sm-block()
+         flex-direction: column
+      h2
+         width: 40%
+         +sm-block()
+            width: 100%
+      p 
+         width: 38%    
+         +sm-block()
+            width: 100%    
 
 .simple-text
    +col()
@@ -263,38 +344,61 @@ nav
    +shift-md-right(0)  
    position: relative
    display: flex
-   padding-bottom: 150px
+   height: 300px
+   align-items: center
    +sm-block()
       padding-bottom: 75px
+      height: auto
    &:first-of-type
-      margin-top: 90px
+      margin-top: 300px  
+      +sm-block()
+         margin-top: 0px       
    &:last-of-type
-      padding-bottom: 0px      
+      margin-bottom: 500px         
+      +sm-block()
+         margin-bottom: 0px   
    &:last-of-type &__line
       display: none
+   &:last-of-type &__line_amnimation  
+      display: none      
    &__line
       position: absolute
-      top: 0
-      height: 100%
+      top: 50%
+      height: inherit
       width: 2px
       left: 30px
-      z-index: -1
-      background: $color-theme-gray
-      &_aminimation
-
+      z-index: -2
+      background: $color-functional-input-bg
+      &_amnimation      
+         position: absolute
+         top: 50%
+         width: 2px
+         height: 0%
+         transform-origin: top center
+         // transform: scaleY(0) 
+         // transition: all .01s linear              
+         left: 30px
+         z-index: -1
+         background: $color-theme-primary
+         @include md-block
+            display: none
    &__number
       display: flex
       flex-shrink: 0    
       width: 60px
       height: 60px
-      background: $color-theme-gray
+      background: $color-functional-input-bg
       justify-content: center
       align-items: center
       border-radius: 400px
       margin-right: 16px
+      transition: all .2s ease
       span
          +font-h3()
-   
+      &_animation
+         background: $color-theme-primary
+         color: $color-additional-white
+
    &__title
 
 
@@ -304,9 +408,7 @@ nav
    width: 50%
    top: 0
    right: 0
-   height: $appheight
-   display: flex
-   flex-wrap: nowrap
+   height: 100%
    +md-block()
       display: none
    &__pic
@@ -314,7 +416,20 @@ nav
       flex-shrink: 0
       width: 100%
       background-size: cover
+      transition: all .3s ease
+   &__sticky
+      height: 100vh
+      position: sticky
+      top: 0
+      width: 100%
+      display: flex
+      flex-wrap: nowrap
+      overflow: hidden
 
+
+.profitable
+   .headline-section
+      +size(12)
 
 .profitable-item
    +col()
@@ -359,21 +474,760 @@ nav
    grid-row-gap: 16px
    margin-bottom: 40px
    +sm-block()
-      grid-template-columns: 1fr
-      grid-template-areas: 'title'
+      grid-template-columns: 1fr 1fr
+      grid-template-areas: 'title title'
       grid-column-gap: 16px
-      padding: 30px
+      padding: 20px
    &__title
       grid-area: title
       width: 100%
    &__item      
       display: flex
       padding: 8px
+      align-items: center
+      +sm-block()
+         flex-direction: column
+         text-align: center
    &__icon
       margin-right: 16px
       flex-shrink: 0
-      img
-         width: 30px
+      width: 30px      
+      +sm-block()
+         width: 24px
+         margin-right: 0px
+         margin-bottom: 12px
    &__text
+      margin: 0px            
 
 
+.flats-price
+   +col()
+   +size(12)
+   padding: 40px
+   box-shadow: -2px 8px 32px rgba(0, 0, 0, 0.06)
+   border-radius: 16px
+   background: $color-additional-white
+   display: grid
+   grid-template-columns: 1fr 1fr 1fr
+   grid-template-areas: 'title title title'
+   grid-column-gap: 24px
+   grid-row-gap: 16px
+   margin-bottom: 40px
+   +sm-block()
+      grid-template-columns: 1fr 
+      grid-template-areas: 'title'      
+      grid-row-gap: 20px
+      padding: 20px
+   &__title
+      grid-area: title
+      padding-right: 50%
+      +sm-block()
+         padding-right: 0%
+
+.flats-price-item
+   background-color: $color-theme-gray
+   text-align: center
+   border-radius: 16px
+   padding: 28px 20px
+   &__title
+      +font-h4()
+      margin-bottom: 8px
+   &__sq
+      font-size: 18px
+      line-height: 18px
+      padding: 5px 8px
+      background: $color-theme-text
+      color: $color-additional-white
+      display: inline-block
+      border-radius: 4px
+   &__pic
+
+   &__price
+      +font-h2()
+      color: $color-theme-primary
+
+.img-responsive
+   max-width: 100%
+   height: auto
+   
+
+
+.form-inline
+   +col()
+   +size(12)
+   padding: 40px
+   box-shadow: -2px 8px 32px rgba(0, 0, 0, 0.06)
+   border-radius: 16px
+   background: $color-additional-white
+   display: flex
+   align-items: flex-start
+   +to(1025px)
+      flex-direction: column
+   +sm-block()
+      text-align: center  
+      padding: 24px    
+   &__title
+
+   &__form     
+      display: grid
+      grid-template-columns: 4fr 1fr  
+      grid-column-gap: 16px    
+      grid-row-gap: 8px     
+      +sm-block()
+         grid-template-columns: 1fr
+      .wpcf7-form  
+         display: flex     
+         +sm-block()
+            flex-direction: column    
+            margin-bottom: 8px 
+   &__phone
+      padding-right: 16px  
+      +sm-block()
+         padding-right: 0px
+         margin-bottom: 16px  
+      span       
+         width: 100%
+         display: block
+         position: relative
+   &__mesenger
+      display: flex
+      align-items: center
+      justify-content: space-around
+      a
+         display: block
+         line-height: 10px
+   small
+      font-size: 12px
+.wpcf7
+   position: relative
+.ajax-loader
+   display: none !important  
+
+.wpcf7-response-output
+    position: absolute
+    width: 100%
+    height: 20%
+    bottom: 0
+    background: #fff
+    text-align: center
+    margin: 0px 0px 0px 0px !important
+    padding: 0px 0px 0px 0px !important
+    border-radius: 4px
+    fonr-size: 10px
+.form-inline .wpcf7-response-output
+   height: 100%
+   line-height: 2 
+.wpcf7 form.invalid .wpcf7-response-output
+   display: none !important   
+
+.wpcf7 form.sent .wpcf7-response-output 
+   background: $color-theme-primary
+   color: #ffffff
+   border: none   
+.wpcf7-not-valid-tip
+   font-size: 12px
+   position: absolute
+   bottom: 0px
+   width: 300px
+
+.wpcf7-form-control-wrap
+   position: relative
+
+
+input:not([type="submit"])   
+   width: 100%  
+   display: block
+   border-radius: 4px
+   padding: 12px
+   outline: none
+   border: none
+   box-shadow: inset 0px 0px 0px 1px $color-theme-gray
+   background: $color-functional-input-bg
+   color: $color-theme-text
+   transition: all .3s ease        
+   &::placeholder
+      color: $color-theme-text
+   &:focus      
+      box-shadow: inset 0px 0px 0px 1px $color-theme-text
+
+input[type="submit"]   
+   width: 100%
+   outline: none
+   background: $color-theme-primary
+   border: none
+   padding: 11px 30px
+   color: $color-additional-white
+   border-radius: 4px
+   &:hover
+      border: none
+      cursor: pointer
+
+
+
+.functionality-content
+   +col()
+   +size(12)
+   display: grid
+   grid-template-columns: 1fr 2fr
+   +sm-block()
+      grid-template-columns: 1fr 
+   &__tabs
+      padding-top: 100px
+      +sm-block()
+         padding-top: 0px
+   &__media      
+      display: none
+
+.tab-media_active
+   display: block
+
+.tabs-sticky
+   position: sticky
+   top: 100px
+   +sm-block()
+      display: flex
+      justify-content: space-between
+.tab
+   display: flex
+   align-items: center
+   margin-bottom: 16px
+   opacity: .5   
+   +sm-block()
+      flex-direction: column
+   &:hover
+      color: $color-theme-primary
+      cursor: pointer
+      opacity: 1
+   &:hover svg 
+      fill: $color-theme-primary
+   &_active 
+      color: $color-theme-primary
+      opacity: 1
+   &_active 
+      svg      
+         fill: $color-theme-primary!important
+   &__icon
+      margin-right: 12px
+      +sm-block()
+         margin-right: 0
+      svg
+         fill: $color-theme-text
+         transition: all .3s ease
+
+   &__title
+      transition: all .3s ease
+      +font-h3()
+      +sm-block()
+         +font-h6()
+
+.iphone-wrapper
+   display: grid
+   grid-template-columns: 1fr 1fr 1fr
+   grid-column-gap: 20px
+   margin-bottom: 40px
+   +sm-block()
+      grid-template-columns: 1fr
+      grid-row-gap: 40px
+.iphone-video
+   width: 100%
+   box-sizing: border-box
+   +sm-block()
+      padding: 30px
+   &__porgerss
+      position: absolute
+      top: 0px
+      width: 80%
+      background-color: $color-theme-primary
+      height: 2px
+      z-index: -2
+      transform: translateY(15px) scaleX(0)        
+      transition: all .3s ease      
+      opacity: 0
+      &_visible
+         transform: translateY(-10px) scaleX(0)
+         opacity: 1
+         z-index: 1
+   &__mockup
+      position: relative
+      height: auto
+      background-size: cover
+      padding: 8%
+      display: flex
+      align-items: center
+      justify-content: center       
+      cursor: pointer  
+      margin-bottom: 12px    
+      img            
+         position: absolute
+         max-width: 100%
+         top: 0
+         z-index: 1
+      video
+         max-width: 100%    
+         object-fit: cover     
+   &__description
+      margin-top: 12px 
+      margin-bottom: 12px    
+      text-align: center
+   &__mobile
+      display: none
+      +md-block 
+         display: block  
+   &__play, &__pause
+      text-align: center      
+      padding: 10px 12px
+      border-radius: 8px
+      background: $color-theme-text
+      font-size: 12px
+      color: $color-additional-white 
+      cursor: pointer                            
+   &__pause
+      background: $color-theme-primary
+      display: none
+
+
+.stories-video-wrapper
+   display: grid
+   grid-template-columns: 1fr 1fr 1fr
+   grid-column-gap: 20px
+   +sm-block()
+      grid-template-columns: 1fr
+      grid-row-gap: 40px
+   &__item
+      box-shadow: -2px 8px 32px rgba(0, 0, 0, 0.06)
+      border-radius: 16px
+      position: relative
+      overflow: hidden
+   &__pic
+      height: 100%
+      background-size: cover
+      background-repeat: no-repeat
+      border-radius: 16px 16px 0px 0px
+      position: absolute
+      z-index: 1
+      top: 0
+      width: 100%
+      transition: all .4s ease-in-out
+   &__title
+      padding: 32px
+      text-align: center
+      +font-small-text()
+      position: absolute
+      z-index: 3
+      background: $color-additional-white
+      bottom: 0
+      border-radius: 0px 0px 16px 16px
+      transition: all .4s ease-in-out
+   video
+      border-radius: 16px
+   &__control      
+      position: absolute
+      bottom: 38%
+      z-index: 2
+      width: 100%   
+      left: 0   
+      +sm-block()
+         bottom: 24%
+   &__play, &__pause
+      position: absolute   
+      left: 42%
+      bottom: -50px
+      transition: all .4s ease-in-out
+   &__pause
+      bottom: -350px  
+   &_play
+      .stories-video-wrapper__pic            
+         top: -100%
+      .stories-video-wrapper__title
+         bottom: -300px      
+      .stories-video-wrapper__play
+         bottom: -350px
+      .stories-video-wrapper__pause
+         bottom: -150px        
+
+.introduction-item
+   +col()
+   +size(3)
+   +size-md(12)
+   box-shadow: -2px 8px 32px rgba(0, 0, 0, 0.06)
+   border-radius: 16px
+   padding: 60px 20px
+   text-align: center
+   margin-bottom: 30px
+   &__number
+      font-size: 96px
+      line-height: 92px
+      color: $color-theme-primary
+      margin-bottom: 30px
+      font-weight: bold
+   &__text
+      +font-paragraph()
+
+
+.case
+   position: relative      
+   margin-bottom: 40px
+   &__text
+      +col()
+      +size(12)
+      // min-height: 650px      
+      // max-height: 650px  
+      box-shadow: -2px 8px 32px rgba(0, 0, 0, 0.06)
+      border-radius: 16px
+      padding: 40px 0px 40px
+      display: flex
+      flex-direction: column
+      justify-content: space-between  
+      +md-block()
+         padding: 0px 0px 40px
+   &__title
+      +font-h2()
+      margin-bottom: 16px
+      padding: 0px 32px
+      +md-block()
+         order: 1
+      +sm-block()                
+         padding: 0px 20px         
+   &__description
+      margin-bottom: 40px
+      min-width: 50%
+      max-width: 50%
+      padding: 0px 32px
+      +md-block()
+         max-width: 100%
+         order: 2
+      +sm-block()                
+         padding: 0px 20px
+   &__advantage
+      min-width: 50%
+      max-width: 50%
+      display: flex
+      flex-wrap: wrap
+      margin-bottom: 40px
+      padding: 0px 32px
+      +md-block()
+         max-width: 100%
+         order: 3
+      +sm-block()                
+         padding: 0px 20px         
+      .advantage
+         background: #E5E5E5
+         box-shadow: none
+         &__icon
+            img
+               width: 32px
+         &__text
+            font-size: 12px
+
+   &__number
+      display: flex
+      min-width: 46%
+      max-width: 46%
+      justify-content: space-between
+      padding: 0px 32px
+      +md-block()
+         max-width: 100%
+         order: 4
+      +sm-block()                
+         padding: 0px 20px         
+
+.case-slider-wrapper  
+   width: 48%
+   height: 100%
+   position: absolute
+   top: 0
+   right: 0 
+   +md-block()
+      display: none
+.slick-list, .slick-slider div
+   height: 100%
+
+.case-slider, 
+   height: 100%
+
+   &__item
+      height: 100%
+      width: 100%
+      background-size: cover   
+      box-sizing: border-box 
+      background-position: center center
+      background-repeat: no-repeat
+      object-fit: cover
+      +md-block()
+         border-radius: 16px 16px 0px 0px   
+      img
+         object-fit: cover
+         width: 100%
+         height: 100%
+         +md-block()
+            // +wrapper()
+            min-height: 300px
+            height: 300px
+            // max-width: 300px
+            width: 100%
+                  
+   &_mobile
+      display: none
+      +md-block()  
+         display: block  
+         position: relative  
+         width: 100% 
+         min-height: 300px 
+         order: 0
+         margin-bottom: 24px
+
+.case-slider-arrows
+   position: absolute   
+   right: 0
+   width: 48%
+   top: 48%
+   z-index: 3
+   +md-block()
+      position: relative
+      +wrapper()           
+      display: none 
+   &__left, &__right
+      position: absolute
+      cursor: pointer
+   &__left
+      left: 16px   
+   &__right         
+      right: 16px
+
+
+.case-number-item
+
+   &__title
+      +font-small-text()
+      opacity: .5
+      margin-bottom: 12px      
+
+   &__number
+      font-weight: bold
+      font-size: 48px
+      line-height: 0.95
+      +sm-block()
+         font-size: 28px
+      +xs-block()
+         font-size: 22px
+
+
+
+.reviews
+   .row
+      +md-block()
+         justify-content: flex-start
+         flex-wrap: nowrap
+         overflow-x: scroll            
+   .headline-section
+      +size(11)         
+.review-stories
+   +col()
+   +size(3)
+   +size-md(6)
+   +size-sm(10)
+   position: relative
+   text-align: center
+   overflow: hidden  
+   // box-shadow: -2px 8px 32px rgba(0, 0, 0, 0.06) 
+   flex-shrink: 0
+   flex-grow: 0   
+      
+   video
+      border-radius: 16px
+      object-fit: cover
+   &__overlay
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.64) 0%, rgba(0, 0, 0, 0.05) 100%)
+      position: absolute
+      z-index: 1
+      width: 100%
+      height: 98%
+      border-radius: 16px
+      opacity: 1
+      transition: all 0.1s ease
+   &__top
+      position: absolute
+      top: 20px      
+      padding: 0px 20px
+      color: #fff
+      transition: all .3s ease
+      z-index: 2      
+         
+   &__el
+      margin-bottom: 12px
+   &__title
+      font-size: 20px
+      line-height: 0.95
+      margin-bottom: 8px
+      font-weight: bold
+   &__name
+      font-size: 14px
+      line-height: 1
+      margin-bottom: 8px
+   &__company
+      font-size: 8px
+      line-height: 1
+
+   &__bottom
+      position: absolute
+      bottom: 20px      
+      width: 100%
+      text-align: center
+      z-index: 2
+   &__play
+      // transform: translateY(0px)
+      transition: all .3s ease
+      position: absolute
+      bottom: 0
+      left: 41%
+      cursor: pointer
+      &:hover
+         transform: scale(1.05) translateY(-3px)      
+   &__pause
+      // transform: translateY(300px)   
+      transition: all .3s ease 
+      position: absolute
+      bottom: -300px
+      left: 41%
+      cursor: pointer
+      &:hover
+         transform: scale(1.05) translateY(-3px)  
+      
+   &_play
+      .review-stories__overlay
+         opacity: 0
+      .review-stories__top  
+         transform: translateY(-200px)
+         
+      .review-stories__play         
+         bottom: -300px
+      .review-stories__pause         
+         bottom: 0
+      
+.contact
+   +col()
+   +size(12)
+   background: #FFFFFF
+   border-radius: 16px
+   padding: 54px 150px
+   +md-block()
+      padding: 30px
+   &__title
+      margin-bottom: 40px 
+      padding-right: 200px
+      +md-block()
+         padding-right: 0px
+   &__content
+      display: grid
+      grid-template-columns: 1fr 1fr
+      grid-column-gap: 100px
+      +sm-block()
+         grid-template-columns: 1fr
+         grid-row-gap: 40px
+   &__form
+      a
+         color: $color-theme-text
+
+   &__messenger
+
+
+   &__info
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+
+.contact-item
+   margin-bottom: 24px
+   &__title
+      font-size: 14px
+      line-height: 1
+      opacity: .5
+      margin-bottom: 4px
+
+   &__description
+      font-size: 18px
+      line-height: 1.3
+      font-weight: bold
+
+.contact-download
+
+   &__title
+      font-size: 18px
+      line-height: 1.3
+      font-weight: bold
+      margin-bottom: 20px
+   &__href
+      display: grid
+      grid-template-columns: 100px 165px 50px
+      grid-template-rows: 50px
+      grid-column-gap: 16px
+      grid-template-areas: 'qr as lg' 'qr gp lg'
+      +sm-block()
+         grid-template-columns: 1fr 1fr
+         grid-template-areas: 'as gp' 'lg lg'
+         grid-template-rows: auto      
+         grid-row-gap: 16px   
+   &__qr
+      grid-area: qr
+      +sm-block()
+         display: none
+
+   &__appstore
+      grid-area: as
+      a
+         display: block
+
+   &__googleplay
+      grid-area: gp
+
+   &__logo
+      grid-area: lg
+      align-self: center
+      text-align: center
+      img
+         +sm-block()
+            width: 40px
+
+
+#footer
+   background: $color-theme-text
+   padding: 60px 0px 60px 0px
+   color: #fff
+.footer
+   +col()
+   +size(12)
+   display: flex
+   justify-content: space-between
+   align-items: center
+   margin-bottom: 30px
+   +sm-block()
+      flex-direction: column
+   &__logo
+      +sm-block()
+         margin-bottom: 24px
+   &__nav
+
+
+   &__phone
+      a
+         color: $color-additional-white
+
+   &__police
+      +col()
+      +size(12)
+      +sm-block()
+         text-align: center
+      a
+         color: $color-additional-white
+         +font-small-text()
+         opacity: .5
+
+
+.white-popup 
+   position: relative
+   background: #FFF
+   padding: 30px
+   width: auto
+   max-width: 500px
+   margin: 20px auto
+   border-radius: 16px

@@ -66,15 +66,19 @@
     "postcss-easy-import": "^3.0.0",
     "postcss-mixins": "^6.2.3",
     "postcss-preset-env": "^6.7.0",
+    "slick-carousel": "^1.8.1",
     "stylelint": "^13.0.0"
   },
   "devDependencies": {
     "bootstrap": "^4.4.1",
+    "gsap": "^3.5.1",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-sass": "^4.0.2",
     "imagemin-jpeg-recompress": "^6.0.0",
     "imagemin-pngquant": "^8.0.0",
+    "magnific-popup": "^1.1.0",
     "normalize.css": "^8.0.1",
-    "smart-grid": "^2.1.2"
+    "smart-grid": "^2.1.2",
+    "video.js": "^7.10.1"
   }
 }

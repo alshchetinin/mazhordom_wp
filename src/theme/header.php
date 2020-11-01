@@ -43,12 +43,12 @@
 				<?php wp_nav_menu([
 						'container_class' => 'primary-menu'
 				]); ?>
-				<a href="#" class="button button-second">
+				<a href="#form-popup" class="button button-second">
 					Узнать о системе
 				</a>
 				</nav>				
 				<div class="navigation__button-wrapper">
-				<a href="#" class="button button-second">
+				<a href="#form-popup" class="button button-second">
 					Узнать о системе
 				</a>	
 				<div class="navigation__burger">

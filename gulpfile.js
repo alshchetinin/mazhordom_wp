@@ -27,7 +27,7 @@ const devip = require('dev-ip');
 /* -------------------------------------------------------------------------------------------------
 Theme Name
 -------------------------------------------------------------------------------------------------- */
-const themeName = "Mazhordom theme";
+const themeName = "Mazhordom-theme";
 
 /* -------------------------------------------------------------------------------------------------
 PostCSS Plugins
@@ -70,7 +70,12 @@ const pluginsListProd = [
 Header & Footer JavaScript Boundles
 -------------------------------------------------------------------------------------------------- */
 const headerJS = [
-	"./node_modules/jquery/dist/jquery.js"
+	"./node_modules/jquery/dist/jquery.js",
+	"./node_modules/video.js/dist/video.js",
+	"./node_modules/slick-carousel/slick/slick.js",
+	'./node_modules/gsap/dist/gsap.js',
+	'./node_modules/gsap/dist/ScrollTrigger.js',
+	'./node_modules/magnific-popup/dist/jquery.magnific-popup.min.js'
 ];
 
 const footerJS = ["./src/assets/js/**"];
@@ -190,6 +195,22 @@ function stylesDev() {
 		.pipe(browserSync.stream({ match: "**/*.css" }));
 }
 
+function stylesEditorDev() {
+	return src("./src/assets/css/style-editor.sass")
+		.pipe(sourcemaps.init())
+		.pipe(sass({ includePaths: "node_modules" }).on("error", sass.logError))
+		.pipe(
+			autoprefixer({
+				grid: true,
+				overrideBrowserslist: ["last 10 versions"]
+			})
+		)
+		//.pipe(sourcemaps.write("."))
+		.pipe(dest("./build/wordpress/wp-content/themes/" + themeName))
+		.pipe(browserSync.stream({ match: "**/*.css" }));
+}
+
+
 function headerScriptsDev() {
 	return src(headerJS)
 		.pipe(plumber({ errorHandler: onError }))
@@ -224,6 +245,7 @@ exports.dev = series(
 	copyImagesDev,
 	copyFontsDev,
 	stylesDev,
+	stylesEditorDev,	
 	headerScriptsDev,
 	footerScriptsDev,
 	pluginsDev,
@@ -259,7 +281,23 @@ function stylesProd() {
 			})
 		)
 		.pipe(dest("./dist/themes/" + themeName));
-}
+
+	}
+
+	function stylesEditorProd() {
+		return src("./src/assets/css/style-editor.sass")
+			.pipe(sourcemaps.init())
+			.pipe(sass({ includePaths: "node_modules" }).on("error", sass.logError))
+			.pipe(
+				autoprefixer({
+					grid: true,
+					overrideBrowserslist: ["last 10 versions"]
+				})
+			)
+			//.pipe(sourcemaps.write("."))
+			.pipe(dest("./dist/themes/" + themeName));
+	
+	}
 
 function headerScriptsProd() {
 	return src(headerJS)
@@ -322,6 +360,7 @@ exports.prod = series(
 	copyThemeProd,
 	copyFontsProd,
 	stylesProd,
+	stylesEditorProd,
 	headerScriptsProd,
 	footerScriptsProd,
 	pluginsProd,

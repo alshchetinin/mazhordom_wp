@@ -17,9 +17,10 @@ $color-additional-white: rgba(255, 255, 255, 1)
 
 
 =offset-section
-  margin-bottom: 136px
+  margin-bottom: calc(136px / 1.5)
+  padding-top: calc(136px / 1.5)
   +sm-block()
-    margin-bottom: 136px / 2
+    margin-bottom: calc(136px / 2)
 
 =font-h1
   font-size: 44px
@@ -31,6 +32,8 @@ $color-additional-white: rgba(255, 255, 255, 1)
   font-family: $font
   font-weight: bold
   line-height: 1.36
+  +sm-block()
+    font-size: 23px
 
 =font-h3
   font-size: 24px
@@ -38,12 +41,12 @@ $color-additional-white: rgba(255, 255, 255, 1)
   font-weight: bold
   line-height: 1.35
   +sm-block()
-    font-size: 22px
+    font-size: 20px
 
 =font-h4
   font-size: 18px
   font-family: $font
-  font-weight: semibold
+  font-weight: bold
 
 =font-h5
   font-size: 16px
@@ -59,14 +62,16 @@ $color-additional-white: rgba(255, 255, 255, 1)
   font-size: 18px
   font-family: $font
   font-weight: normal
-  line-height: 1.3
-
+  line-height: 1.5
+  +sm-block()
+    font-size: 16px
 =font-small-text
   font-size: 14px
   font-family: $font
   font-weight: normal
   line-height: 1.4
-
+  +sm-block()
+    font-size: 12px
 =font-menu
   font-size: 16px
   font-family: $font
