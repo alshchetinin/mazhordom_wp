@@ -73,7 +73,9 @@ $description = get_field('description');
                                           $images = get_sub_field('foto');
                                           if ($images) : ?>
                                                 <?php foreach ($images as $image) : ?>
-                                                      <div class="case-slider__item" style="background-image: url(<?php echo esc_url($image['url']); ?>)"></div>
+                                                      <div class="case-slider__item">
+                                                <img class="" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                                                      </div>
                                                 <?php endforeach; ?>
                                           <?php endif; ?>
                                     </div>
