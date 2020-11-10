@@ -58,15 +58,27 @@ $description = get_field('description');
                                                 <div class="case-number-item__number"><?php echo $sqflat ?>кв.м</div>
                                           </div>
                                     </div>
+                                    <div class="slider-wrapper_mobile">
+                                    <div class="case-slider-arrows case-slider-arrows_mobile">
+                                          <div class="case-slider-arrows__left">
+                                                <img src="<?php echo get_template_directory_uri() ?>/img/arrow-left.svg" alt="">
+                                          </div>
+                                          <div class="case-slider-arrows__right">
+                                                <img src="<?php echo get_template_directory_uri() ?>/img/arrow-right.svg" alt="">
+                                          </div>
+
+                                    </div>
                                     <div class="case-slider case-slider_mobile">
                                           <?php
                                           $images = get_sub_field('foto');
-                                          if ($images) : ?>                                                
-                                                      <?php foreach ($images as $image) : ?>
-                                                            <div class="case-slider__item" style="background-image: url(<?php echo esc_url($image['url']); ?>)"></div>
-                                                      <?php endforeach; ?>                                                
+                                          if ($images) : ?>
+                                                <?php foreach ($images as $image) : ?>
+                                                      <div class="case-slider__item" style="background-image: url(<?php echo esc_url($image['url']); ?>)"></div>
+                                                <?php endforeach; ?>
                                           <?php endif; ?>
                                     </div>
+                                    </div>
+
                               </div>
 
                         </div>
@@ -81,18 +93,18 @@ $description = get_field('description');
 
                   </div>
                   <div class="case-slider-wrapper">
-                  <div class="case-slider case-slider_desctop">
-                        <?php
-                        $images = get_sub_field('foto');
-                        if ($images) : ?>                                                
+                        <div class="case-slider case-slider_desctop">
+                              <?php
+                              $images = get_sub_field('foto');
+                              if ($images) : ?>
                                     <?php foreach ($images as $image) : ?>
                                           <div class="case-slider__item">
-                                          <img class="" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                                                <img class="" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
                                           </div>
-                                          
-                                    <?php endforeach; ?>                                                
-                        <?php endif; ?>
-                  </div>
+
+                                    <?php endforeach; ?>
+                              <?php endif; ?>
+                        </div>
                   </div>
 
             </div>

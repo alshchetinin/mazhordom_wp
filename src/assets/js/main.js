@@ -21,9 +21,15 @@ $(document).ready(function () {
    $('.hamburger').click(function (e) {
       e.preventDefault();
       $(this).toggleClass('is-active');
-      $('nav').toggleClass('nav-is-active');
-      $('body').toggleClass('open-nav');
+      $('nav').toggleClass('nav-is-active');      
+      $('body').toggleClass('open-nav');   
+
    });
+   $('nav a').click(function (e) {       
+      $(this).parent().parent().parent().parent().toggleClass('nav-is-active');   
+      $('.hamburger').toggleClass('is-active');
+   });   
+
 
 
 

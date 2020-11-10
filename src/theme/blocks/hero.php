@@ -8,10 +8,10 @@
                   ?>
 
 <section class="hero">
+      <div class="hero__overlay hero__overlay_mobile"></div>
       <img src="<?php echo $picture ?>" alt="" class="hero__bg">
       <div class="wrapper">
-            <div class="row">
-
+            <div class="row">                  
                   <div class="hero__title">
                         <h1><?php echo $title?></h1>
                   </div>
