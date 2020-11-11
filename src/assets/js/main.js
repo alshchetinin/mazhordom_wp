@@ -418,10 +418,10 @@ var cs1 = gsap.timeline({
 
 
 
-$('.wpcf7-response-output').click(function (e) { 
-   e.preventDefault();
-   $(this).slideToggle();
-});
+// $('.wpcf7-response-output').click(function (e) { 
+//    e.preventDefault();
+//    $(this).slideToggle();
+// });
 
 $('[href="#form-popup"]').magnificPopup({
    type: 'inline',
