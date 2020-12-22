@@ -41,7 +41,7 @@ $description = get_field('description');
                                     <div class="review-stories__pause"><img src="<?php echo get_template_directory_uri() ?>/img/icon-pause.svg" alt=""></div>
                               </div>
                               <div class="review-stories__overlay"></div>
-                              <video playsinline preload="auto" poster="<?php echo $poster ?>" class="img-responsive">
+                              <video playsinline preload="none" poster="<?php echo $poster ?>" class="img-responsive">
                                     <source src="<?php echo $video ?>" type="video/mp4">
                               </video>
                         </div>

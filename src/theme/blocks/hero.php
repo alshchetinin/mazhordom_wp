@@ -9,7 +9,7 @@
 
 <section class="hero">
       <div class="hero__overlay hero__overlay_mobile"></div>
-      <img src="<?php echo $picture ?>" alt="" class="hero__bg">
+      <img src="<?php echo $picture ?>" alt="" class="hero__bg skip-lazy">
       <div class="wrapper">
             <div class="row">                  
                   <div class="hero__title">
@@ -26,7 +26,7 @@
                         $text = get_sub_field('text');
                         ?>
                         <div class="advantage">
-                              <div class="advantage__icon"><img src="<?php echo $icon?>" alt="" width="37px"></div>
+                              <div class="advantage__icon"><img class="skip-lazy" src="<?php echo $icon?>" alt="" width="37px"></div>
                               <div class="advantage__text"><?php echo $text?></div>
 
                         </div>					

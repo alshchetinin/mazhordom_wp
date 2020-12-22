@@ -40,7 +40,7 @@
                                                 <div class="contact-download__qr"><img src="<?php echo get_template_directory_uri() ?>/img/qw.png" alt=""></div>
                                                 <div class="contact-download__appstore"><a href=""><img src="<?php echo get_template_directory_uri() ?>/img/appstore.png" alt=""></a></div>
                                                 <div class="contact-download__googleplay"><a href=""><img src="<?php echo get_template_directory_uri() ?>/img/googleplay.png" alt=""></a></div>
-                                                <div class="contact-download__logo"><img src="<?php echo get_template_directory_uri() ?>/img/mini-logo.png" alt=""></div>
+                                                <div class="contact-download__logo"><img src="<?php echo get_template_directory_uri() ?>/img/mini-logo.svg" alt=""></div>
 
                                           </div>
 

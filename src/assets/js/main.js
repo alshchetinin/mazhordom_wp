@@ -1,4 +1,21 @@
 $(document).ready(function () {
+   // $("#mask-phone").mask("(999) 999-9999");
+
+   $.fn.setCursorPosition = function(pos) {
+      if ($(this).get(0).setSelectionRange) {
+         $(this).get(0).setSelectionRange(pos, pos);
+      } else if ($(this).get(0).createTextRange) {
+      var range = $(this).get(0).createTextRange();
+         range.collapse(true);
+         range.moveEnd('character', pos);
+         range.moveStart('character', pos);
+         range.select();
+      }
+   };
+
+   $(".wpcf7-mask").click(function(){
+      $(this).setCursorPosition(3);
+   })
    gsap.registerPlugin(ScrollTrigger);
 
    //Фикс высоты экрана
@@ -65,24 +82,39 @@ $(document).ready(function () {
    }
 
 
-   $('.iphone-video__play').click(function (e) {
-      e.preventDefault();
-      var video = $(this).parent().parent()
-      video.find('video')[0].play()
-      showProgressVideo(video)
-   });
+$(".iphone-video").on('click', function () {
+   var video = $(this).find('video')[0];
+   var thisPlay = $(this).find('.iphone-video__play')
+   if ( video.paused ) {
+         video.play();
+         showProgressVideo($(this))
+         thisPlay.slideUp()
+   } else {
+         video.pause();
+         thisPlay.slideDown()
+   }
 
-   $('.iphone-video__pause').click(function (e) {
-      e.preventDefault();
-      var video = $(this).parent().parent()
-      video.find('video')[0].pause()
-      hideProgerssVideo(video)
-   });
+   return false;
+});
 
-   $('.iphone-video__mobile').click(function (e) {
-      e.preventDefault();
-      $('.iphone-video__play, .iphone-video__pause').toggle()
-   });
+   // $('.iphone-video__play').click(function (e) {
+   //    e.preventDefault();
+   //    var video = $(this).parent()
+   //    video.find('video')[0].play()
+   //    showProgressVideo(video)
+   // });
+
+   // $('.iphone-video__pause').click(function (e) {
+   //    e.preventDefault();
+   //    var video = $(this).parent().parent()
+   //    video.find('video')[0].pause()
+   //    hideProgerssVideo(video)
+   // });
+
+   // $('.iphone-video__mobile').click(function (e) {
+   //    e.preventDefault();
+   //    $('.iphone-video__play, .iphone-video__pause').toggle()
+   // });
 
    if(window.screen.width>=982){
       $('.iphone-video__mockup').hover(function () {

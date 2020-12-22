@@ -250,7 +250,7 @@ nav
             color: $color-theme-primary
    &__description
       +col()
-      +size(4)
+      +size(10)
       +size-md(8)
       +size-xs(12)
       // +shift-right(2)
@@ -262,7 +262,7 @@ nav
       +size(6.3)
       +size-md(8)
       +size-sm(12)
-      +shift-right(2)
+      +shift-right(4)
       +shift-md-right(0)
       margin-bottom: 54px
       display: flex
@@ -322,7 +322,7 @@ section
    position: relative
 .headline-section
    +col()
-   +size(6)
+   +size(12)
    +size-md(12)
    margin-bottom: 40px
    &__title
@@ -356,11 +356,13 @@ section
    +shift-md-right(0)  
    position: relative
    display: flex
-   height: 300px
+   height: 150px
    align-items: center
    +md-block()
       padding-bottom: 75px
       height: auto
+      flex-direction: column
+      align-items: flex-start
    &:first-of-type
       margin-top: 300px  
       +md-block()
@@ -405,6 +407,8 @@ section
       border-radius: 400px
       margin-right: 16px
       transition: all .2s ease
+      +md-block()
+         margin-bottom: 16px
       span
          +font-h3()
       &_animation
@@ -412,6 +416,10 @@ section
          color: $color-additional-white
 
    &__title
+   img 
+      display: none
+      +md-block()
+         display: block   
 
 
 
@@ -439,9 +447,9 @@ section
       overflow: hidden
 
 
-.profitable
-   .headline-section
-      +size(12)
+// .profitable
+//    .headline-section
+//       +size(12)
 
 .profitable-item
    +col()
@@ -518,8 +526,10 @@ section
       margin: 0px      
       +sm-block()
          font-size: 14px     
-
-
+.features1
+   margin-bottom: 0px
+#flats-price
+   padding-top: 40px
 .flats-price
    +col()
    +size(12)
@@ -803,15 +813,21 @@ input[type="submit"]
    &__mobile
       display: none
       +md-block 
-         display: block  
+         display: block 
+         position: absolute
+         // bottom: 38px          
    &__play, &__pause
       text-align: center      
-      padding: 10px 12px
+      padding: 8px 8px
       border-radius: 8px
       background: $color-theme-text
       font-size: 12px
       color: $color-additional-white 
-      cursor: pointer                            
+      cursor: pointer 
+      display: flex
+      img
+         position: relative   
+         width: 32px                        
    &__pause
       background: $color-theme-primary
       display: none

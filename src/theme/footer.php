@@ -49,7 +49,7 @@
                                                 <div class="contact-download__qr"><img src="<?php the_field('qr', 'option')?>" alt=""></div>
                                                 <div class="contact-download__appstore"><a href="<?php the_field('linkApsstore', 'option')?>"><img src="<?php echo get_template_directory_uri() ?>/img/appstore.png" alt=""></a></div>
                                                 <div class="contact-download__googleplay"><a href="<?php the_field('linkGP', 'option')?>"><img src="<?php echo get_template_directory_uri() ?>/img/googleplay.png" alt=""></a></div>
-                                                <div class="contact-download__logo"><img src="<?php echo get_template_directory_uri() ?>/img/mini-logo.png" alt=""></div>
+                                                <div class="contact-download__logo"><img src="<?php echo get_template_directory_uri() ?>/img/mini-logo.svg" alt=""></div>
 
                                           </div>
 

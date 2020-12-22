@@ -60,8 +60,8 @@ $form_title = get_field('form_title');
 
                   </div>
             </div>
-            <div class="row">
-                  <div class="flats-price">
+            <div class="row" id="flats-price">
+                  <div class="flats-price" >
                         <h3 class="flats-price__title"> <?php echo $price_title  ?></h3>
                         <?php while( have_rows('kvartiry') ): the_row(); 
 
@@ -75,7 +75,7 @@ $form_title = get_field('form_title');
                               <div class="flats-price-item__title"><?php echo $title ?></div>
                               <div class="flats-price-item__sq"><?php echo $sq ?> кв. м</div>
                               <div class="flats-price-item__pic">
-                                    <img src="<?php echo $img ?>" alt="" class="img-responsive">
+                                    <img src="<?php echo $img ?>" alt="" class="img-responsive skip-lazy">
                               </div>
                               <div class="flats-price-item__price"><?php echo $price ?> р.</div>
 

@@ -61,20 +61,19 @@ $description = get_field('description');
                                                 <div class="iphone-video__mockup">
                                                       <div class="iphone-video__porgerss"></div>
                                                       <img src="<?php echo get_template_directory_uri() ?>/img/iphone.png" alt="" class="img-responsive">
-                                                      <video playsinline preload="auto" poster="<?php echo $poster ?>" muted="muted"  class="img-responsive">
+                                                      <video playsinline preload="metadata" poster="<?php echo $poster ?>" muted="muted"  class="img-responsive">
                                                             <source src="<?php echo $video ?>" type="video/mp4">
                                                       </video>
-                                                </div>
-                                                <div class="iphone-video__description"><?php echo $title ?></div>
-                                                <div class="iphone-video__mobile">
+
+                                                      <div class="iphone-video__mobile">
                                                       <div class="iphone-video__play">
-                                                            Воспроизвести
-                                                      </div>
-                                                      <div class="iphone-video__pause">
-                                                            Пауза
+                                                            <img src="<?php echo get_template_directory_uri() ?>/img/icon-play.svg" alt="">
                                                       </div>
 
+                                                </div>                                                      
                                                 </div>
+                                                <div class="iphone-video__description"><?php echo $title ?></div>
+
 
                                           </div>
 
@@ -92,7 +91,7 @@ $description = get_field('description');
                                                       <div class="stories-video-wrapper__item">
                                                             <div class="stories-video-wrapper__pic" style="background-image:url(<?php echo $poster ?>"></div>
                                                             <div class="stories-video-wrapper__title"><?php echo $title ?></div>
-                                                            <video playsinline preload="auto"  class="img-responsive">
+                                                            <video playsinline preload="metadata"  class="img-responsive">
                                                                   <source src="<?php echo $video ?>" type="video/mp4">
                                                             </video>
                                                             <div class="stories-video-wrapper__control">
@@ -118,7 +117,7 @@ $description = get_field('description');
                                                 <div class="iphone-video__mockup">
                                                       <div class="iphone-video__porgerss"></div>
                                                       <img src="<?php echo get_template_directory_uri() ?>/img/iphone.png" alt="" class="img-responsive">
-                                                      <video playsinline preload="auto" poster="<?php echo $poster ?>" muted="muted" class="img-responsive">
+                                                      <video playsinline preload="metadata" poster="<?php echo $poster ?>" muted="muted" class="img-responsive">
                                                             <source src="<?php echo $video ?>" type="video/mp4">
                                                       </video>
                                                 </div>
@@ -147,7 +146,7 @@ $description = get_field('description');
                                                       <div class="stories-video-wrapper__item">
                                                             <div class="stories-video-wrapper__pic" style="background-image:url(<?php echo $poster ?>"></div>
                                                             <div class="stories-video-wrapper__title"><?php echo $title ?></div>
-                                                            <video playsinline preload="auto"  class="img-responsive">
+                                                            <video playsinline preload="metadata"  class="img-responsive">
                                                                   <source src="<?php echo $video ?>" type="video/mp4">
                                                             </video>
                                                             <div class="stories-video-wrapper__control">
@@ -173,7 +172,7 @@ $description = get_field('description');
                                                 <div class="iphone-video__mockup">
                                                       <div class="iphone-video__porgerss"></div>
                                                       <img src="<?php echo get_template_directory_uri() ?>/img/iphone.png" alt="" class="img-responsive">
-                                                      <video playsinline preload="auto" poster="<?php echo $poster ?>" muted="muted" class="img-responsive">
+                                                      <video playsinline preload="metadata" poster="<?php echo $poster ?>" muted="muted" class="img-responsive">
                                                             <source src="<?php echo $video ?>" type="video/mp4">
                                                       </video>
                                                 </div>
@@ -204,7 +203,7 @@ $description = get_field('description');
                                                       <div class="stories-video-wrapper__item">
                                                             <div class="stories-video-wrapper__pic" style="background-image:url(<?php echo $poster ?>"></div>
                                                             <div class="stories-video-wrapper__title"><?php echo $title ?></div>
-                                                            <video playsinline preload="auto"  class="img-responsive">
+                                                            <video playsinline preload="metadata"  class="img-responsive">
                                                                   <source src="<?php echo $video ?>" type="video/mp4">
                                                             </video>
                                                             <div class="stories-video-wrapper__control">
