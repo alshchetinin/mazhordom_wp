@@ -245,32 +245,32 @@ $(".iphone-video").on('click', function () {
 
    })
 
-   var av3 = gsap.timeline({
-      scrollTrigger: {
-         trigger: '.flats-price',
-         start: "top 76%",
-         // markers:true,
-         toggleActions: "play reverse play reverse"
-      },
-   })
-      .from('.flats-price', { opacity: 0, duration: 0.2, ease: "ease-in-out", })
-      .from('.flats-price-item', { opacity: 0, duration: 0.2, stagger: 0.1, ease: "ease-in-out", })
+   // var av3 = gsap.timeline({
+   //    scrollTrigger: {
+   //       trigger: '.flats-price',
+   //       start: "top 76%",
+   //       // markers:true,
+   //       toggleActions: "play reverse play reverse"
+   //    },
+   // })
+   //    .from('.flats-price', { opacity: 0, duration: 0.2, ease: "ease-in-out", })
+   //    .from('.flats-price-item', { opacity: 0, duration: 0.2, stagger: 0.1, ease: "ease-in-out", })
 
-   var av4 = gsap.timeline({
-      scrollTrigger: {
-         trigger: '.form-inline',
-         start: "top 76%",
-         // markers:true,
-         toggleActions: "play reverse play reverse"
-      },
-   })
-      .from('.form-inline', { opacity: 0, duration: 0.2, ease: "ease-in-out", })
-      .from('.form-inline div', { opacity: 0, duration: 0.2, stagger: 0.1, ease: "ease-in-out", })
+   // var av4 = gsap.timeline({
+   //    scrollTrigger: {
+   //       trigger: '.form-inline',
+   //       start: "top 76%",
+   //       // markers:true,
+   //       toggleActions: "play reverse play reverse"
+   //    },
+   // })
+   //    .from('.form-inline', { opacity: 0, duration: 0.2, ease: "ease-in-out", })
+   //    .from('.form-inline div', { opacity: 0, duration: 0.2, stagger: 0.1, ease: "ease-in-out", })
    
    var pr = gsap.timeline({
       scrollTrigger: {
          trigger: '.introduction',
-         start: "top 80%",
+         start: "top 90%",
          // markers:true,
          toggleActions: "play reverse play reverse"
       },
