@@ -5,17 +5,19 @@ $description = get_field('description');
 <section class="functionality" id="functionality">
       <div class="wrapper">
             <div class="row">
-                  <div class="headline-section headline-section_horizontally">
-                        <h2 class="headline-section__title">
-                              <?php echo $title ?>
-                        </h2>
-                        <p><?php echo $description ?></p>
-                  </div>
+
             </div>
             <div class="row">
                   <div class="functionality-content">
                         <div class="functionality-content__tabs">
+                        <div class="functionality-content__title">
+                                          <h2 class="headline-section__title">
+                                                <?php echo $title ?>
+                                          </h2>
+                                          <p><?php echo $description ?></p>
+                                    </div>
                               <div class="tabs-sticky">
+
                                     <div class="tab tab_active js-tab" data-tab="1">
                                           <div class="tab__icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                       <path d="M10.1052 3.19995C6.27801 3.19995 4.26562 6.98565 4.26562 10.6625C4.26562 12.5195 4.46751 13.8352 4.74271 15.0437C5.45418 12.0784 6.98776 9.68182 9.46563 7.69995C9.78243 7.44608 10.2143 7.39488 10.5802 7.56662C12.6314 8.51595 14.0608 10.2893 14.9323 12.2562V8.53328C14.9323 5.54235 13.5015 3.19995 10.1052 3.19995ZM21.8927 3.19995C18.4964 3.19995 17.0656 5.54235 17.0656 8.53328V12.2562C17.9371 10.2893 19.3665 8.51595 21.4177 7.56662C21.7836 7.39488 22.2155 7.44715 22.5323 7.69995C25.0102 9.68182 26.5437 12.0784 27.2552 15.0437C27.5304 13.8352 27.7323 12.5195 27.7323 10.6625C27.7323 6.98565 25.7199 3.19995 21.8927 3.19995ZM10.2677 9.81245C7.59891 12.1709 6.39896 15.0994 6.39896 19.2104C6.39896 19.5848 6.19433 19.8965 5.90313 20.0875C6.49406 23.8624 6.13336 28.7999 10.6656 28.7999C13.5872 28.7999 14.9323 26.193 14.9323 23.4666V18.1291C14.9248 18.1291 14.9168 18.1333 14.9094 18.1333C14.3206 18.1333 13.8427 17.6554 13.8427 17.0666C13.8427 15.2362 13.0784 11.5234 10.2677 9.81245ZM21.7302 9.81245C18.9195 11.5234 18.1552 15.2362 18.1552 17.0666C18.1552 17.6554 17.6773 18.1333 17.0885 18.1333C17.0811 18.1333 17.0731 18.1291 17.0656 18.1291V23.4666C17.0656 26.193 18.4107 28.7999 21.3323 28.7999C25.8646 28.7999 25.5039 23.8624 26.0948 20.0875C25.8036 19.8965 25.599 19.5848 25.599 19.2104C25.599 15.0994 24.399 12.1709 21.7302 9.81245Z" />
@@ -57,41 +59,41 @@ $description = get_field('description');
                                                 $poster = get_sub_field('poster');
                                                 $video = get_sub_field('video');
                                           ?>
-                                          <div class="iphone-video">
-                                                <div class="iphone-video__mockup">
-                                                      <div class="iphone-video__porgerss"></div>
-                                                      <img src="<?php echo get_template_directory_uri() ?>/img/iphone.png" alt="" class="img-responsive">
-                                                      <video playsinline preload="metadata" poster="<?php echo $poster ?>" muted="muted"  class="img-responsive">
-                                                            <source src="<?php echo $video ?>" type="video/mp4">
-                                                      </video>
+                                                <div class="iphone-video">
+                                                      <div class="iphone-video__mockup">
+                                                            <div class="iphone-video__porgerss"></div>
+                                                            <img src="<?php echo get_template_directory_uri() ?>/img/iphone.png" alt="" class="img-responsive">
+                                                            <video playsinline preload="metadata" poster="<?php echo $poster ?>" muted="muted" class="img-responsive">
+                                                                  <source src="<?php echo $video ?>" type="video/mp4">
+                                                            </video>
 
-                                                      <div class="iphone-video__mobile">
-                                                      <div class="iphone-video__play">
-                                                            <img src="<?php echo get_template_directory_uri() ?>/img/icon-play.svg" alt="">
+                                                            <div class="iphone-video__mobile">
+                                                                  <div class="iphone-video__play">
+                                                                        <img src="<?php echo get_template_directory_uri() ?>/img/icon-play.svg" alt="">
+                                                                  </div>
+
+                                                            </div>
                                                       </div>
+                                                      <div class="iphone-video__description"><?php echo $title ?></div>
 
-                                                </div>                                                      
+
                                                 </div>
-                                                <div class="iphone-video__description"><?php echo $title ?></div>
-
-
-                                          </div>
 
                                           <?php endwhile; ?>
 
 
                                     </div>
-                                    <?php if( have_rows('video-stories') ): ?>
+                                    <?php if (have_rows('video-stories')) : ?>
                                           <div class="stories-video-wrapper">
-                                          <?php while( have_rows('video-stories') ): the_row(); 
-                                                $title = get_sub_field('title');
-                                                $poster = get_sub_field('poster');
-                                                $video = get_sub_field('video');
+                                                <?php while (have_rows('video-stories')) : the_row();
+                                                      $title = get_sub_field('title');
+                                                      $poster = get_sub_field('poster');
+                                                      $video = get_sub_field('video');
                                                 ?>
                                                       <div class="stories-video-wrapper__item">
                                                             <div class="stories-video-wrapper__pic" style="background-image:url(<?php echo $poster ?>"></div>
                                                             <div class="stories-video-wrapper__title"><?php echo $title ?></div>
-                                                            <video playsinline preload="metadata"  class="img-responsive">
+                                                            <video playsinline preload="metadata" class="img-responsive">
                                                                   <source src="<?php echo $video ?>" type="video/mp4">
                                                             </video>
                                                             <div class="stories-video-wrapper__control">
@@ -101,52 +103,51 @@ $description = get_field('description');
                                                             </div>
 
                                                       </div>
-                                          <?php endwhile; ?>
+                                                <?php endwhile; ?>
                                           </div>
-                                          <?php endif; ?>
+                                    <?php endif; ?>
                               </div>
                               <div class="functionality-content__media  js-tab-content" data-tab-content="2">
                                     <div class="iphone-wrapper">
-                                    <?php while (have_rows('phone-2')) : the_row();
+                                          <?php while (have_rows('phone-2')) : the_row();
                                                 // переменные
                                                 $title = get_sub_field('title');
                                                 $poster = get_sub_field('poster');
                                                 $video = get_sub_field('video');
                                           ?>
-                                          <div class="iphone-video">
-                                                <div class="iphone-video__mockup">
-                                                      <div class="iphone-video__porgerss"></div>
-                                                      <img src="<?php echo get_template_directory_uri() ?>/img/iphone.png" alt="" class="img-responsive">
-                                                      <video playsinline preload="metadata" poster="<?php echo $poster ?>" muted="muted" class="img-responsive">
-                                                            <source src="<?php echo $video ?>" type="video/mp4">
-                                                      </video>
-                                                </div>
-                                                <div class="iphone-video__description"><?php echo $title ?></div>
-                                                <div class="iphone-video__mobile">
-                                                      <div class="iphone-video__play">
-                                                            Воспроизвести
+                                                <div class="iphone-video">
+                                                      <div class="iphone-video__mockup">
+                                                            <div class="iphone-video__porgerss"></div>
+                                                            <img src="<?php echo get_template_directory_uri() ?>/img/iphone.png" alt="" class="img-responsive">
+                                                            <video playsinline preload="metadata" poster="<?php echo $poster ?>" muted="muted" class="img-responsive">
+                                                                  <source src="<?php echo $video ?>" type="video/mp4">
+                                                            </video>
+
+                                                            <div class="iphone-video__mobile">
+                                                                  <div class="iphone-video__play">
+                                                                        <img src="<?php echo get_template_directory_uri() ?>/img/icon-play.svg" alt="">
+                                                                  </div>
+
+                                                            </div>
                                                       </div>
-                                                      <div class="iphone-video__pause">
-                                                            Пауза
-                                                      </div>
+                                                      <div class="iphone-video__description"><?php echo $title ?></div>
+
 
                                                 </div>
-
-                                          </div>
 
                                           <?php endwhile; ?>
                                     </div>
-                                    <?php if( have_rows('video-stories_1') ): ?>
+                                    <?php if (have_rows('video-stories_1')) : ?>
                                           <div class="stories-video-wrapper">
-                                          <?php while( have_rows('video-stories_1') ): the_row(); 
-                                                $title = get_sub_field('title');
-                                                $poster = get_sub_field('poster');
-                                                $video = get_sub_field('video');
+                                                <?php while (have_rows('video-stories_1')) : the_row();
+                                                      $title = get_sub_field('title');
+                                                      $poster = get_sub_field('poster');
+                                                      $video = get_sub_field('video');
                                                 ?>
                                                       <div class="stories-video-wrapper__item">
                                                             <div class="stories-video-wrapper__pic" style="background-image:url(<?php echo $poster ?>"></div>
                                                             <div class="stories-video-wrapper__title"><?php echo $title ?></div>
-                                                            <video playsinline preload="metadata"  class="img-responsive">
+                                                            <video playsinline preload="metadata" class="img-responsive">
                                                                   <source src="<?php echo $video ?>" type="video/mp4">
                                                             </video>
                                                             <div class="stories-video-wrapper__control">
@@ -156,54 +157,53 @@ $description = get_field('description');
                                                             </div>
 
                                                       </div>
-                                          <?php endwhile; ?>
+                                                <?php endwhile; ?>
                                           </div>
-                                          <?php endif; ?>
+                                    <?php endif; ?>
                               </div>
                               <div class="functionality-content__media  js-tab-content" data-tab-content="3">
                                     <div class="iphone-wrapper">
-                                    <?php while (have_rows('phone-3')) : the_row();
+                                          <?php while (have_rows('phone-3')) : the_row();
                                                 // переменные
                                                 $title = get_sub_field('title');
                                                 $poster = get_sub_field('poster');
                                                 $video = get_sub_field('video');
                                           ?>
-                                          <div class="iphone-video">
-                                                <div class="iphone-video__mockup">
-                                                      <div class="iphone-video__porgerss"></div>
-                                                      <img src="<?php echo get_template_directory_uri() ?>/img/iphone.png" alt="" class="img-responsive">
-                                                      <video playsinline preload="metadata" poster="<?php echo $poster ?>" muted="muted" class="img-responsive">
-                                                            <source src="<?php echo $video ?>" type="video/mp4">
-                                                      </video>
-                                                </div>
-                                                <div class="iphone-video__description"><?php echo $title ?></div>
-                                                <div class="iphone-video__mobile">
-                                                      <div class="iphone-video__play">
-                                                            Воспроизвести
+                                                <div class="iphone-video">
+                                                      <div class="iphone-video__mockup">
+                                                            <div class="iphone-video__porgerss"></div>
+                                                            <img src="<?php echo get_template_directory_uri() ?>/img/iphone.png" alt="" class="img-responsive">
+                                                            <video playsinline preload="metadata" poster="<?php echo $poster ?>" muted="muted" class="img-responsive">
+                                                                  <source src="<?php echo $video ?>" type="video/mp4">
+                                                            </video>
+
+                                                            <div class="iphone-video__mobile">
+                                                                  <div class="iphone-video__play">
+                                                                        <img src="<?php echo get_template_directory_uri() ?>/img/icon-play.svg" alt="">
+                                                                  </div>
+
+                                                            </div>
                                                       </div>
-                                                      <div class="iphone-video__pause">
-                                                            Пауза
-                                                      </div>
+                                                      <div class="iphone-video__description"><?php echo $title ?></div>
+
 
                                                 </div>
-
-                                          </div>
 
                                           <?php endwhile; ?>
 
 
                                     </div>
-                                    <?php if( have_rows('video-stories_2') ): ?>
+                                    <?php if (have_rows('video-stories_2')) : ?>
                                           <div class="stories-video-wrapper">
-                                          <?php while( have_rows('video-stories_2') ): the_row(); 
-                                                $title = get_sub_field('title');
-                                                $poster = get_sub_field('poster');
-                                                $video = get_sub_field('video');
+                                                <?php while (have_rows('video-stories_2')) : the_row();
+                                                      $title = get_sub_field('title');
+                                                      $poster = get_sub_field('poster');
+                                                      $video = get_sub_field('video');
                                                 ?>
                                                       <div class="stories-video-wrapper__item">
                                                             <div class="stories-video-wrapper__pic" style="background-image:url(<?php echo $poster ?>"></div>
                                                             <div class="stories-video-wrapper__title"><?php echo $title ?></div>
-                                                            <video playsinline preload="metadata"  class="img-responsive">
+                                                            <video playsinline preload="metadata" class="img-responsive">
                                                                   <source src="<?php echo $video ?>" type="video/mp4">
                                                             </video>
                                                             <div class="stories-video-wrapper__control">
@@ -213,9 +213,9 @@ $description = get_field('description');
                                                             </div>
 
                                                       </div>
-                                          <?php endwhile; ?>
+                                                <?php endwhile; ?>
                                           </div>
-                                          <?php endif; ?>
+                                    <?php endif; ?>
                               </div>
                         </div>
 

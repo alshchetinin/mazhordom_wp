@@ -7,7 +7,7 @@
                   
                   ?>
 
-<section class="hero">
+<div class="hero">
       <div class="hero__overlay hero__overlay_mobile"></div>
       <img src="<?php echo $picture ?>" alt="" class="hero__bg skip-lazy">
       <div class="wrapper">
@@ -38,4 +38,4 @@
                   </div>
             </div>
       </div>
-</section>
+</div>

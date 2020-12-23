@@ -76,7 +76,8 @@ const headerJS = [
 	'./node_modules/gsap/dist/gsap.js',
 	'./node_modules/gsap/dist/ScrollTrigger.js',
 	'./node_modules/magnific-popup/dist/jquery.magnific-popup.min.js',
-	'./node_modules/jquery.maskedinput/src/jquery.maskedinput.js'
+	'./node_modules/inputmask/dist/inputmask.js',
+	'./node_modules/inputmask/dist/jquery.inputmask.js'
 ];
 
 const footerJS = ["./src/assets/js/**"];

@@ -1,5 +1,5 @@
 $(document).ready(function () {
-   // $("#mask-phone").mask("(999) 999-9999");
+   $('.mask-phone').inputmask('+7 (999) 999-99-99');
 
    $.fn.setCursorPosition = function(pos) {
       if ($(this).get(0).setSelectionRange) {
@@ -13,9 +13,9 @@ $(document).ready(function () {
       }
    };
 
-   $(".wpcf7-mask").click(function(){
-      $(this).setCursorPosition(3);
-   })
+   // $(".wpcf7-mask").click(function(){
+   //    $(this).setCursorPosition(3);
+   // })
    gsap.registerPlugin(ScrollTrigger);
 
    //Фикс высоты экрана
@@ -134,58 +134,56 @@ $(".iphone-video").on('click', function () {
 
 
 
-   //Анимация
-   var scrollDuration = 0
-   var transformXimg = 4 * $('.simple-image__pic').width();
-   // scrollDuration = 4 * $('.simple-text').height();
-   var lineHeight = $('.simple-text__line').height();
+   // //Анимация
+   // var scrollDuration = 0
+   // var transformXimg = 4 * $('.simple-image__pic').width();
+   // // scrollDuration = 4 * $('.simple-text').height();
+   // var lineHeight = $('.simple-text__line').height();
 
-   $('.simple-text').each(function (index, element) {
-      // element == this      
-      var attImg = $(this).attr('data-image')
-      var prevAttImg = $(this).prev().attr('data-image');
-      if (prevAttImg === undefined) {
-         prevAttImg = attImg
-      }
-      $(this).addClass('simple-text-trigger' + index)
-      $(this).find('.simple-text__line_amnimation').addClass('simple-text-line-animation' + index)
-      gsap.to('.simple-text-line-animation' + index, {
-         scrollTrigger: {
-            trigger: ".simple-text-trigger" + index,
-            start: "center center",
-            end: "+=" + lineHeight,
-            scrub: true,
-            ease: "linear",
-         },
-         height: "100%",
-         ease: "linear"
-      },
-         0)
+   // $('.simple-text').each(function (index, element) {
+   //    // element == this      
+   //    var attImg = $(this).attr('data-image')
+   //    var prevAttImg = $(this).prev().attr('data-image');
+   //    if (prevAttImg === undefined) {
+   //       prevAttImg = attImg
+   //    }
+   //    $(this).addClass('simple-text-trigger' + index)
+   //    $(this).find('.simple-text__line_amnimation').addClass('simple-text-line-animation' + index)
+   //    gsap.to('.simple-text-line-animation' + index, {
+   //       scrollTrigger: {
+   //          trigger: ".simple-text-trigger" + index,
+   //          start: "center center",
+   //          end: "+=" + lineHeight,
+   //          scrub: true,
+   //          ease: "linear",
+   //       },
+   //       height: "100%",
+   //       ease: "linear"
+   //    },
+   //       0)
 
 
-      ScrollTrigger.create({
-         trigger: ".simple-text-trigger" + index,
-         start: "center center",
-         scrub: true,
-         ease: "linear",
-         // markers: true,         
-         onEnter: () => $(this).find('.simple-text__number').addClass('simple-text__number_animation'),
-         onLeaveBack: () => $(this).find('.simple-text__number').removeClass('simple-text__number_animation'),         
-      });
-
-    
-      ScrollTrigger.create({
-         trigger: ".simple-text-trigger" + index,
-         start: "center center",
-         scrub: true,
-         ease: "linear",
-         // markers: true,         
-         onEnter: () => $(this).parent().parent().parent().find('.simple-image__pic').css('background-image', 'url('+ attImg+ ')'),
-         onLeaveBack: () => $(this).parent().parent().parent().find('.simple-image__pic').css('background-image', 'url('+ prevAttImg+')')
+   //    ScrollTrigger.create({
+   //       trigger: ".simple-text-trigger" + index,
+   //       start: "center center",
+   //       scrub: true,
+   //       ease: "linear",
+   //       // markers: true,         
+   //       onEnter: () => $(this).find('.simple-text__number').addClass('simple-text__number_animation'),
+   //       onLeaveBack: () => $(this).find('.simple-text__number').removeClass('simple-text__number_animation'),         
+   //    });
+   //    ScrollTrigger.create({
+   //       trigger: ".simple-text-trigger" + index,
+   //       start: "center center",
+   //       scrub: true,
+   //       ease: "linear",
+   //       // markers: true,         
+   //       onEnter: () => $(this).parent().parent().parent().find('.simple-image__pic').css('background-image', 'url('+ attImg+ ')'),
+   //       onLeaveBack: () => $(this).parent().parent().parent().find('.simple-image__pic').css('background-image', 'url('+ prevAttImg+')')
          
-      });
+   //    });
 
-   });
+   // });
 
 
    //анимация hero
@@ -194,6 +192,20 @@ $(".iphone-video").on('click', function () {
       .from('.hero__description', { opacity: 0, y: -10, duration: 0.6, ease: "ease-in-out", delay: 0.2 })
       .to('.hero__advantages .advantage', { opacity: 1, duration: 0.1, stagger: 0.1, ease: "ease-in-out", })
       .from('.hero__button', { opacity: 0, y: 10, duration: 0.6, ease: "ease-in-out", delay: 0.1 })
+
+   //Анимация Просто
+   var pr = gsap.timeline({
+      scrollTrigger: {
+         trigger: '.simple',
+         start: "top 80%",
+         //  markers:true,
+         toggleActions: "play reverse play reverse"
+      },
+   })
+      .from('.simple .headline-section h2', { y: -30, opacity: 0, duration: 0.2, stagger: 0.3, ease: "ease-in-out", })
+      .from('.simple .headline-section p', { opacity: 0, duration: 0.2, stagger: 0.3, ease: "ease-in-out", })
+      .from('.simple-item', { opacity: 0, duration: 0.2, stagger: 0.3, ease: "ease-in-out", delay: 0.2, });
+
 
 
    //Анимация Выгодно

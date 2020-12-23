@@ -17,24 +17,24 @@ $description = get_field('description');
             </div>
             <div class="row">
                   <div class="introduction-item">
-                        <div class="introduction-item__number"><span>90</span>%</div>
+                        <div class="introduction-item__number"><span>8700</span></div>
                         <div class="introduction-item__text">
-                              Процент проданных квартир к моменту ввода в эксплуатацию
+                        Количество активных пользователей 
                         </div>
 
                   </div>
                   <div class="introduction-item">
-                        <div class="introduction-item__number">×<span>2</span></div>
+                        <div class="introduction-item__number"><span>25</span></div>
                         <div class="introduction-item__text">
-                              Рост объема продаж квартир по сравнению с остальными объектами
+                        Количество подключенных домов 
                         </div>
 
                   </div>
 
                   <div class="introduction-item">
-                        <div class="introduction-item__number"><span>10</span>%</div>
+                        <div class="introduction-item__number"><span>93</span>%</div>
                         <div class="introduction-item__text">
-                              Процент увеличения премии к рынку
+                        Жителей подключенного дома используют Мажордом
                         </div>
 
                   </div>
