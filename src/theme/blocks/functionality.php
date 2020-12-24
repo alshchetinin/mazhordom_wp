@@ -62,9 +62,9 @@ $description = get_field('description');
                                                 <div class="iphone-video">
                                                       <div class="iphone-video__mockup">
                                                             <div class="iphone-video__porgerss"></div>
-                                                            <img src="<?php echo get_template_directory_uri() ?>/img/iphone.png" alt="" class="img-responsive">
-                                                            <video playsinline preload="metadata" poster="<?php echo $poster ?>" muted="muted" class="img-responsive">
-                                                                  <source src="<?php echo $video ?>" type="video/mp4">
+                                                            <img  data-src="<?php echo get_template_directory_uri() ?>/img/iphone.png" alt="" class="img-responsive lazy">
+                                                            <video playsinline preload="metadata" poster="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODg2IiBoZWlnaHQ9IjE5MjAiIHZpZXdCb3g9IjAgMCA4ODYgMTkyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggb3BhY2l0eT0iMC4wNCIgZD0iTTQxOS40MDIgMTA3MS45OUwzNzEuNzYyIDkxMS45NzJIMzcwLjY1NEMzNzAuODM5IDkxNS43ODIgMzcxLjExNiA5MjEuNDk3IDM3MS40ODUgOTI5LjExN0MzNzEuODU0IDkzNi43MzcgMzcyLjIyNCA5NDQuOTI5IDM3Mi41OTMgOTUzLjY5MkMzNzIuOTYyIDk2Mi4yNjQgMzczLjE0NyA5NzAuMDc1IDM3My4xNDcgOTc3LjEyM1YxMDcxLjk5SDMzNS43NTVWODY3Ljk2NkgzOTIuODEyTDQzOS42MjEgMTAyMy45OUg0NDAuNDUyTDQ5MC4wMzEgODY3Ljk2Nkg1NDcuMDg4VjEwNzEuOTlINTA4LjAzNVY5NzUuNDA5QzUwOC4wMzUgOTY4LjkzMiA1MDguMTI3IDk2MS41MDIgNTA4LjMxMiA5NTMuMTJDNTA4LjY4MSA5NDQuNzM4IDUwOC45NTggOTM2LjgzMiA1MDkuMTQzIDkyOS40MDNDNTA5LjUxMiA5MjEuNzgzIDUwOS43ODkgOTE2LjA2OCA1MDkuOTc0IDkxMi4yNThINTA4Ljg2Nkw0NTcuOTAyIDEwNzEuOTlINDE5LjQwMloiIGZpbGw9ImJsYWNrIi8+Cjwvc3ZnPgo=" data-poster="<?php echo $poster ?>" muted="muted" class="img-responsive lazy">
+                                                                  <source  data-src="<?php echo $video ?>" type="video/mp4">
                                                             </video>
 
                                                             <div class="iphone-video__mobile">
@@ -173,8 +173,8 @@ $description = get_field('description');
                                                       <div class="iphone-video__mockup">
                                                             <div class="iphone-video__porgerss"></div>
                                                             <img src="<?php echo get_template_directory_uri() ?>/img/iphone.png" alt="" class="img-responsive">
-                                                            <video playsinline preload="metadata" poster="<?php echo $poster ?>" muted="muted" class="img-responsive">
-                                                                  <source src="<?php echo $video ?>" type="video/mp4">
+                                                            <video playsinline preload="metadata" data-poster="<?php echo $poster ?>" muted="muted" class="img-responsive lazy">
+                                                                  <source data-src="<?php echo $video ?>" type="video/mp4">
                                                             </video>
 
                                                             <div class="iphone-video__mobile">

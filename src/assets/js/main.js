@@ -1,4 +1,7 @@
 $(document).ready(function () {
+   var lazyLoadInstance = new LazyLoad({
+      // Your custom settings go here
+   });
    $('.mask-phone').inputmask('+7 (999) 999-99-99');
 
    $.fn.setCursorPosition = function(pos) {
@@ -116,7 +119,90 @@ $(".iphone-video").on('click', function () {
    //    $('.iphone-video__play, .iphone-video__pause').toggle()
    // });
 
+
+
+
+   //анимация hero
+   var hero = gsap.timeline()
+      .from('.hero__title', { opacity: 0, y: -10, duration: 0.6, ease: "ease-in-out", })
+      .from('.hero__description', { opacity: 0, y: -10, duration: 0.6, ease: "ease-in-out", delay: 0.2 })
+      .to('.hero__advantages .advantage', { opacity: 1, duration: 0.1, stagger: 0.1, ease: "ease-in-out", })
+      .from('.hero__button', { opacity: 0, y: 10, duration: 0.6, ease: "ease-in-out", delay: 0.1 })
+
+
+   //Анимация просто
+      gsap.from('.simple-item', {
+         opacity: 0,
+         y: -10, 
+         duration: 0.5,
+         stagger: 0.2,
+         scrollTrigger: {
+            trigger: '#simple',                        
+            start: 'top bottom-=100px',
+            toggleActions: 'play none none reset'
+         }
+      })
+      var profitableScroll = 'top bottom-=100px'
+      if(window.screen.width<=982) {
+         profitableScroll = 'top bottom-=500px'
+      }
+   //Анимация Выгодно
+   var profitable = gsap.timeline({
+      scrollTrigger: {
+         trigger: '.profitable',
+         start: profitableScroll,
+         // markers: true,
+         toggleActions: 'play none none reset'
+      },
+      })            
+      .from('.profitable-item', { opacity: 0, y: -40,  duration: 0.5, stagger: 0.4, ease: "ease-in-out", })
+      .from(".profitable-item__number span", {
+         duration: 3,
+         ease: "ease-in-out",
+         innerHTML: "0",
+         snap: "innerHTML",         
+      }, "<");   
+
+      //Анимация доступно
+      var itemFeatures = gsap.utils.toArray('.features')
+      $(itemFeatures).each(function (index, element) {
+         $(this).addClass('features' + index)
+   
+         var features = gsap.timeline({
+            scrollTrigger: {
+               trigger: '.features' + index,
+               start: 'top bottom-=100px',
+               end: 'bottom top',
+               // markers:true,
+               toggleActions: 'play none none reset'
+            },
+         })
+            .from('.features' + index, { opacity: 0, duration: 0.2, y: -40, ease: "ease-in-out", })
+            .from('.features' + index + ' .features__item', { opacity: 0, y: -10, duration: 0.2, stagger: 0.1, ease: "ease-in-out", })
+   
+      })        
+      
+      var introduction = gsap.timeline({
+         scrollTrigger: {
+            trigger: '.introduction',
+            start: 'top bottom-=100px',
+            // markers:true,
+            toggleActions: 'play none none reverse'
+         },
+      })
+         .from('.introduction-item', { opacity: 0, y: -40, duration: 0.2, stagger: 0.3, ease: "ease-in-out", delay: 0.2, })
+         .from(".introduction-item__number span", {
+            duration: 3,
+            ease: "ease-in-out",
+            innerText: "0.0",
+            snap: "innerText",
+            // stagger: 0.3
+         }, "<");
+         
+
+
    if(window.screen.width>=982){
+      
       $('.iphone-video__mockup').hover(function () {
          // over
          var video = $(this).find('video')
@@ -130,232 +216,7 @@ $(".iphone-video").on('click', function () {
          hideProgerssVideo($(this))
       }
       );
-
-
-
-
-   // //Анимация
-   // var scrollDuration = 0
-   // var transformXimg = 4 * $('.simple-image__pic').width();
-   // // scrollDuration = 4 * $('.simple-text').height();
-   // var lineHeight = $('.simple-text__line').height();
-
-   // $('.simple-text').each(function (index, element) {
-   //    // element == this      
-   //    var attImg = $(this).attr('data-image')
-   //    var prevAttImg = $(this).prev().attr('data-image');
-   //    if (prevAttImg === undefined) {
-   //       prevAttImg = attImg
-   //    }
-   //    $(this).addClass('simple-text-trigger' + index)
-   //    $(this).find('.simple-text__line_amnimation').addClass('simple-text-line-animation' + index)
-   //    gsap.to('.simple-text-line-animation' + index, {
-   //       scrollTrigger: {
-   //          trigger: ".simple-text-trigger" + index,
-   //          start: "center center",
-   //          end: "+=" + lineHeight,
-   //          scrub: true,
-   //          ease: "linear",
-   //       },
-   //       height: "100%",
-   //       ease: "linear"
-   //    },
-   //       0)
-
-
-   //    ScrollTrigger.create({
-   //       trigger: ".simple-text-trigger" + index,
-   //       start: "center center",
-   //       scrub: true,
-   //       ease: "linear",
-   //       // markers: true,         
-   //       onEnter: () => $(this).find('.simple-text__number').addClass('simple-text__number_animation'),
-   //       onLeaveBack: () => $(this).find('.simple-text__number').removeClass('simple-text__number_animation'),         
-   //    });
-   //    ScrollTrigger.create({
-   //       trigger: ".simple-text-trigger" + index,
-   //       start: "center center",
-   //       scrub: true,
-   //       ease: "linear",
-   //       // markers: true,         
-   //       onEnter: () => $(this).parent().parent().parent().find('.simple-image__pic').css('background-image', 'url('+ attImg+ ')'),
-   //       onLeaveBack: () => $(this).parent().parent().parent().find('.simple-image__pic').css('background-image', 'url('+ prevAttImg+')')
-         
-   //    });
-
-   // });
-
-
-   //анимация hero
-   var hero = gsap.timeline()
-      .from('.hero__title', { opacity: 0, y: -10, duration: 0.6, ease: "ease-in-out", })
-      .from('.hero__description', { opacity: 0, y: -10, duration: 0.6, ease: "ease-in-out", delay: 0.2 })
-      .to('.hero__advantages .advantage', { opacity: 1, duration: 0.1, stagger: 0.1, ease: "ease-in-out", })
-      .from('.hero__button', { opacity: 0, y: 10, duration: 0.6, ease: "ease-in-out", delay: 0.1 })
-
-   //Анимация Просто
-   var pr = gsap.timeline({
-      scrollTrigger: {
-         trigger: '.simple',
-         start: "top 80%",
-         //  markers:true,
-         toggleActions: "play reverse play reverse"
-      },
-   })
-      .from('.simple .headline-section h2', { y: -30, opacity: 0, duration: 0.2, stagger: 0.3, ease: "ease-in-out", })
-      .from('.simple .headline-section p', { opacity: 0, duration: 0.2, stagger: 0.3, ease: "ease-in-out", })
-      .from('.simple-item', { opacity: 0, duration: 0.2, stagger: 0.3, ease: "ease-in-out", delay: 0.2, });
-
-
-
-   //Анимация Выгодно
-   var pr = gsap.timeline({
-      scrollTrigger: {
-         trigger: '.profitable',
-         start: "top 80%",
-         //  markers:true,
-         toggleActions: "play reverse play reverse"
-      },
-   })
-      .from('.profitable .headline-section h2', { y: -30, opacity: 0, duration: 0.2, stagger: 0.3, ease: "ease-in-out", })
-      .from('.profitable .headline-section p', { opacity: 0, duration: 0.2, stagger: 0.3, ease: "ease-in-out", })
-      .from('.profitable-item', { opacity: 0, duration: 0.2, stagger: 0.3, ease: "ease-in-out", delay: 0.2, })
-      .from(".profitable-item__number span", {
-         duration: 1,
-         ease: "ease-in-out",
-         innerHTML: "0",
-         snap: "innerHTML",
-         // stagger: 0.3
-      }, "<");
-
-
-   //Анимация доступно
-   var av1 = gsap.timeline({
-      scrollTrigger: {
-         trigger: '.available',
-         start: "top 80%",
-         // markers:true,
-         toggleActions: "play reverse play reverse"
-      },
-   })
-      .from('.available .headline-section h2', { y: -30, opacity: 0, duration: 0.2, stagger: 0.3, ease: "ease-in-out", })
-      .from('.available .headline-section p', { opacity: 0, duration: 0.2, stagger: 0.3, ease: "ease-in-out", })
-
-   $('.features').each(function (index, element) {
-      $(this).addClass('features' + index)
-
-      var av2 = gsap.timeline({
-         scrollTrigger: {
-            trigger: '.features' + index,
-            start: "top 76%",
-            // markers:true,
-            toggleActions: "play reverse play reverse"
-         },
-      })
-         .from('.features' + index, { opacity: 0, duration: 0.2, ease: "ease-in-out", })
-         .from('.features' + index + ' .features__item', { opacity: 0, duration: 0.2, stagger: 0.1, ease: "ease-in-out", })
-
-   })
-
-   // var av3 = gsap.timeline({
-   //    scrollTrigger: {
-   //       trigger: '.flats-price',
-   //       start: "top 76%",
-   //       // markers:true,
-   //       toggleActions: "play reverse play reverse"
-   //    },
-   // })
-   //    .from('.flats-price', { opacity: 0, duration: 0.2, ease: "ease-in-out", })
-   //    .from('.flats-price-item', { opacity: 0, duration: 0.2, stagger: 0.1, ease: "ease-in-out", })
-
-   // var av4 = gsap.timeline({
-   //    scrollTrigger: {
-   //       trigger: '.form-inline',
-   //       start: "top 76%",
-   //       // markers:true,
-   //       toggleActions: "play reverse play reverse"
-   //    },
-   // })
-   //    .from('.form-inline', { opacity: 0, duration: 0.2, ease: "ease-in-out", })
-   //    .from('.form-inline div', { opacity: 0, duration: 0.2, stagger: 0.1, ease: "ease-in-out", })
-   
-   var pr = gsap.timeline({
-      scrollTrigger: {
-         trigger: '.introduction',
-         start: "top 90%",
-         // markers:true,
-         toggleActions: "play reverse play reverse"
-      },
-   })
-      .from('.introduction .headline-section h2', { y: -30, opacity: 0, duration: 0.2, stagger: 0.3, ease: "ease-in-out", })
-      .from('.introduction .headline-section p', { opacity: 0, duration: 0.2, stagger: 0.3, ease: "ease-in-out", })
-      .from('.introduction-item', { opacity: 0, duration: 0.2, stagger: 0.3, ease: "ease-in-out", delay: 0.2, })
-      .from(".introduction-item__number span", {
-         duration: 1,
-         ease: "ease-in-out",
-         innerText: "0.0",
-         snap: "innerText",
-         // stagger: 0.3
-      }, "<");
-
-
-
-//Анимация кейсы
-
-var cs1 = gsap.timeline({
-   scrollTrigger: {
-      trigger: '.cases',
-      start: "top 80%",
-      // markers:true,
-      toggleActions: "play reverse play reverse"
-   },
-})
-   .from('.cases .headline-section h2', { y: -30, opacity: 0, duration: 0.2, stagger: 0.3, ease: "ease-in-out", })   
-
-$('.case').each(function (index, element) {
-   $(this).addClass('case' + index)
-
-   var cs2 = gsap.timeline({
-      scrollTrigger: {
-         trigger: '.case' + index,
-         start: "top 76%",
-         // markers:true,
-         toggleActions: "play reverse play reverse"
-      },
-   })
-      .from('.case' + index, { opacity: 0, duration: 0.2, ease: "ease-in-out", })
-      .from('.case' + index + ' .case-slider-wrapper ', { opacity: 0, duration: 0.2, ease: "ease-in-out", })
-      .from('.case' + index + ' .case__title',{ opacity: 0, duration: 0.2, ease: "ease-in-out", delay: 0.1 })
-      .from('.case' + index + ' .case__description',{ opacity: 0, duration: 0.2, ease: "ease-in-out", delay: 0.2})      
-      .from('.case' + index + ' .case__advantage .advantage', { opacity: 0, duration: 0.2, stagger: 0.1, ease: "ease-in-out", })
-      .from('.case' + index + ' .case-number-item', { opacity: 0, duration: 0.2, stagger: 0.1, ease: "ease-in-out", })
-
-})
-
-
-// Анимация отзывы
-var cs1 = gsap.timeline({
-   scrollTrigger: {
-      trigger: '.reviews',
-      start: "top 80%",
-      // markers:true,
-      toggleActions: "play reverse play reverse"
-   },
-})
-   .from('.reviews .headline-section h2', { y: -30, opacity: 0, duration: 0.2, stagger: 0.3, ease: "ease-in-out", })  
-   .from('.review-stories', { opacity: 0, duration: 0.2, stagger: 0.3, ease: "ease-in-out", delay: 0.2, })
-
-
-
-
    }
-
-
-
-
-
-
-
 
 
 
@@ -381,7 +242,8 @@ var cs1 = gsap.timeline({
          dots: false,
          arrows: false,
          infinite: true,
-         speed: 600         
+         speed: 600,
+         lazyLoad: 'ondemand',  
       });
    });
 

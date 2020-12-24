@@ -51,7 +51,7 @@ $form_title = get_field('form_title');
                         ?>
                         <div class="features__item">
                               
-                              <img src="<?php echo $icon?>" alt="" class="features__icon">
+                              <img class="features__icon" src="<?php echo $icon?>" alt="" class="features__icon">
                               
                               <p class="features__text"><?php echo $text ?></p>
 
@@ -75,14 +75,14 @@ $form_title = get_field('form_title');
                               <div class="flats-price-item__title"><?php echo $title ?></div>
                               <div class="flats-price-item__sq"><?php echo $sq ?> кв. м</div>
                               <div class="flats-price-item__pic">
-                                    <img src="<?php echo $img ?>" alt="" class="img-responsive skip-lazy">
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzE3IiBoZWlnaHQ9IjMyNiIgdmlld0JveD0iMCAwIDMxNyAzMjYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIG9wYWNpdHk9IjAuMDQiIGQ9Ik0xMzUuNDAyIDI3NC45OTNMODcuNzYyMSAxMTQuOTcySDg2LjY1NDJDODYuODM4OCAxMTguNzgyIDg3LjExNTggMTI0LjQ5NyA4Ny40ODUxIDEzMi4xMTdDODcuODU0NCAxMzkuNzM3IDg4LjIyMzcgMTQ3LjkyOSA4OC41OTMgMTU2LjY5MkM4OC45NjIzIDE2NS4yNjQgODkuMTQ3IDE3My4wNzUgODkuMTQ3IDE4MC4xMjNWMjc0Ljk5M0g1MS43NTUxVjcwLjk2NkgxMDguODEyTDE1NS42MjEgMjI2Ljk4N0gxNTYuNDUyTDIwNi4wMzEgNzAuOTY2SDI2My4wODhWMjc0Ljk5M0gyMjQuMDM1VjE3OC40MDlDMjI0LjAzNSAxNzEuOTMyIDIyNC4xMjcgMTY0LjUwMiAyMjQuMzEyIDE1Ni4xMkMyMjQuNjgxIDE0Ny43MzggMjI0Ljk1OCAxMzkuODMyIDIyNS4xNDMgMTMyLjQwM0MyMjUuNTEyIDEyNC43ODMgMjI1Ljc4OSAxMTkuMDY4IDIyNS45NzQgMTE1LjI1OEgyMjQuODY2TDE3My45MDIgMjc0Ljk5M0gxMzUuNDAyWiIgZmlsbD0iYmxhY2siLz4KPC9zdmc+Cg==" data-src="<?php echo $img ?>" alt="" class="img-responsive lazy">
                               </div>
                               <div class="flats-price-item__price"><?php echo $price ?> р.</div>
 
                         </div>
                         <?php endwhile; ?>
 
-
+                        
 
                   </div>
             </div>

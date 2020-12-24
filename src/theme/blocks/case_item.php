@@ -61,10 +61,10 @@ $description = get_field('description');
                                     <div class="slider-wrapper_mobile">
                                     <div class="case-slider-arrows case-slider-arrows_mobile">
                                           <div class="case-slider-arrows__left">
-                                                <img src="<?php echo get_template_directory_uri() ?>/img/arrow-left.svg" alt="">
+                                                <img class="skip-lazy" src="<?php echo get_template_directory_uri() ?>/img/arrow-left.svg" alt="">
                                           </div>
                                           <div class="case-slider-arrows__right">
-                                                <img src="<?php echo get_template_directory_uri() ?>/img/arrow-right.svg" alt="">
+                                                <img class="skip-lazy" src="<?php echo get_template_directory_uri() ?>/img/arrow-right.svg" alt="">
                                           </div>
 
                                     </div>
@@ -74,7 +74,7 @@ $description = get_field('description');
                                           if ($images) : ?>
                                                 <?php foreach ($images as $image) : ?>
                                                       <div class="case-slider__item">
-                                                <img class="" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                                                <img class="skip-lazy" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
                                                       </div>
                                                 <?php endforeach; ?>
                                           <?php endif; ?>
@@ -101,7 +101,7 @@ $description = get_field('description');
                               if ($images) : ?>
                                     <?php foreach ($images as $image) : ?>
                                           <div class="case-slider__item">
-                                                <img class="" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                                                <img class="lazy" data-src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
                                           </div>
 
                                     <?php endforeach; ?>

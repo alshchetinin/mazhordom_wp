@@ -9,7 +9,7 @@
 
 <div class="hero">
       <div class="hero__overlay hero__overlay_mobile"></div>
-      <img src="<?php echo $picture ?>" alt="" class="hero__bg skip-lazy">
+      <img src="data:image/gif;base64,R0lGODlhEAAJAIAAAP///wAAACH5BAEAAAEALAAAAAAQAAkAAAIKjI+py+0Po5yUFQA7" data-src="<?php echo $picture ?>" alt="" class="hero__bg lazy">
       <div class="wrapper">
             <div class="row">                  
                   <div class="hero__title">
